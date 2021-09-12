@@ -58,6 +58,8 @@ local forward_tab = function()
     if config.options.act_as_tab then
         api.nvim_command('cal feedkeys("' .. utils.replace("<C-V> <Tab>") ..
                              '", "n" )')
+    else
+        vim.cmd("normal! w")
     end
 end
 
@@ -69,6 +71,8 @@ local backward_tab = function()
     if config.options.act_as_shift_tab and (prev_char == '' or prev_char == ' ') then
         api.nvim_command('cal feedkeys("' .. utils.replace("<C-V> <S-Tab>") ..
                              '", "n" )')
+    else
+        vim.cmd("normal! b")
     end
 end
 
